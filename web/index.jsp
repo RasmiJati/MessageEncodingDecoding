@@ -5,6 +5,8 @@
     <head>
         <meta charset="UTF-8">
         <title>Message Encoder/Decoder</title>
+        <style><%@include file="/WEB-INF/css/style.css"%></style>
+
     </head>
     <body>
 
@@ -37,18 +39,5 @@
             </tr>
         </table>
         <% }%>
-
-        <% if (request.getAttribute("error") != null) {%>
-        <br><br>
-        <table border="1">
-            <tr>
-                <th>Error</th>
-            </tr>
-            <tr>
-                <td><%= request.getAttribute("error")%></td>
-            </tr>
-        </table>
-        <% }%>
-
     </body>
 </html>

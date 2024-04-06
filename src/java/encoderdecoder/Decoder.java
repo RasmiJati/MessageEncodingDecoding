@@ -14,7 +14,7 @@ public class Decoder {
     public Decoder() {
     }
 
-    public String decodeBase64(String encodedText) {
+    public String decoded(String encodedText) {
         StringBuilder binaryString = new StringBuilder();
         for (char c : encodedText.toCharArray()) {
             try {

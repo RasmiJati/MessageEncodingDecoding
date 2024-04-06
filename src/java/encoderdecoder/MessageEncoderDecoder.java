@@ -33,9 +33,9 @@ public class MessageEncoderDecoder extends HttpServlet {
         Decoder decode = new Decoder();
 
         if ("encode".equals(option)) {
-            result = encode.encodeBase64(message);
+            result = encode.encoded(message);
         } else if ("decode".equals(option)) {
-            result = decode.decodeBase64(message);
+            result = decode.decoded(message);
         }
 
         request.setAttribute("result", result);

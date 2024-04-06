@@ -19,9 +19,8 @@ public class Encoder {
     public Encoder() {
     }
 
-    public String encodeBase64(String plainText) {
+    public String encoded(String plainText) {
 
-//        convert plain text into 8 bit binary representation as per ASCII Character codes
         StringBuilder binaryString = new StringBuilder();
         for (char c : plainText.toCharArray()) {
             try {
@@ -34,20 +33,12 @@ public class Encoder {
                 System.out.println("Invalid character: " + c + ". Skipping...");
             }
         }
-        System.out.println("=======================================================================");
-        System.out.println("Binary Representation for \"" + plainText + "\":");
-        System.out.println(binaryString.toString().trim());
-        System.out.println("=======================================================================");
-
         StringBuilder encodedString = new StringBuilder();
         int index = 0;
-
-        System.out.println("Grouped Binary Representation:");
 
         while (index < binaryString.length()) {
             String group = binaryString.substring(index, Math.min(index + 6, binaryString.length()));
 
-            // Add padding to make sure each group contains 6 bits
             while (group.length() < 6) {
                 group += "0";
             }
@@ -57,16 +48,11 @@ public class Encoder {
                 char base64Char = getBase64Char(decimalValue);
                 encodedString.append(base64Char);
                 index += 6;
-                System.out.print(group.trim() + "\t"); // Trim to remove the trailing space
             } catch (NumberFormatException e) {
                 System.out.println("Invalid binary format: " + group + ". Skipping...");
                 index += 6;
             }
         }
-        System.out.println("");
-        System.out.println("=======================================================================");
-
-        // Add padding if necessary
         while (encodedString.length() % 4 != 0) {
             encodedString.append("=");
         }
