@@ -1,5 +1,5 @@
 body {
-    background-color: teal; /* Changed background color */
+    background : teal;
     display: flex;
     justify-content: center;
     align-items: center;
